@@ -5,12 +5,10 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialComponentsModule } from './material-components/material-components.module';
 
 import { AppComponent } from './app.component';
-import { CustomCardComponent } from './components/custom-card/custom-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CustomCardComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
