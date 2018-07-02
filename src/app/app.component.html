@@ -9,33 +9,22 @@
     </mat-form-field>
   </div>
   
-  <div class='shopping-list-items-container' *ngIf='false'>
-    <mat-selection-list #itemsToBuyList>
-      <div class='shopping-list-item' *ngFor="let item of itemsToBuy; let $index = index;">
-        <mat-checkbox [(ngModel)]="item.checked">{{ item.text }}</mat-checkbox>
-        <button mat-button matSuffix mat-icon-button aria-label='Delete' (click)='deleteItemAtIndex($index)'>
-          <mat-icon>delete</mat-icon>
-        </button>
-      </div>
-
-    </mat-selection-list>
-    
-    <p *ngIf='itemsToBuy.length === 0'>
-      Alışveriş listenize eklediğiniz bir öğe yok.
-    </p>
-  </div>
   <div class='shopping-list-items-container'>
     <mat-list>
       <h3 mat-subheader>Alınacaklar Listesi</h3>
-      <mat-list-item *ngFor="let item of itemsToBuy; let $index = index;">
-        <mat-checkbox 
-          (change)='updateLists(item, $index)'
-          [(ngModel)]="item.checked">
-          {{ item.text }}
-        </mat-checkbox>
-        <button mat-button matSuffix mat-icon-button aria-label='Delete' (click)='deleteItemAtIndex(item, $index)'>
-          <mat-icon>delete</mat-icon>
-        </button>
+      <mat-list-item class='shopping-item-row' *ngFor="let item of itemsToBuy; let $index = index;">
+        <div class='item-checkbox'>
+          <mat-checkbox 
+            (change)='updateLists(item, $index)'
+            [(ngModel)]="item.checked">
+            {{ item.text }}
+          </mat-checkbox>  
+        </div>
+        <div class="item-actions">
+          <button mat-button matSuffix mat-icon-button aria-label='Delete' (click)='deleteItemAtIndex(item, $index)'>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
       </mat-list-item>
       <p class='item-buy-status-text' *ngIf='itemsToBuy.length === 0'>
         Alışveriş listenize eklediğiniz bir öğe yok.
@@ -44,15 +33,19 @@
       <mat-divider></mat-divider>
       
       <h3 mat-subheader>Satın alınanlar</h3>
-      <mat-list-item *ngFor="let item of boughtItems; let $index = index;">
-        <mat-checkbox 
-          (change)='updateLists(item, $index)'
-          [(ngModel)]="item.checked">
-          {{ item.text }}
-        </mat-checkbox>
-        <button mat-button matSuffix mat-icon-button aria-label='Delete' (click)='deleteItemAtIndex(item, $index)'>
-          <mat-icon>delete</mat-icon>
-        </button>
+      <mat-list-item class='shopping-item-row' *ngFor="let item of boughtItems; let $index = index;">
+        <div class='item-checkbox'>
+          <mat-checkbox 
+            (change)='updateLists(item, $index)'
+            [(ngModel)]="item.checked">
+            {{ item.text }}
+          </mat-checkbox>
+        </div>
+        <div class='item-actions'>
+          <button mat-button matSuffix mat-icon-button aria-label='Delete' (click)='deleteItemAtIndex(item, $index)'>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
       </mat-list-item>
     </mat-list>
     <p class='item-buy-status-text' *ngIf='boughtItems.length === 0'>

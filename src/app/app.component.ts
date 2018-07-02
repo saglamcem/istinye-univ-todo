@@ -23,7 +23,20 @@ export class AppComponent {
         checked: false
       };
 
-      this.itemsToBuy.push(itemToAdd);
+      // Look for item in items to buy list
+      const filteredItemsToBuyList = this.itemsToBuy
+        .map(item => item.text.toLowerCase())
+        .filter(text => text === itemText.toLowerCase());
+
+      // Look for item in bought items list
+      const filteredBoughtItemsList = this.boughtItems
+        .map(item => item.text.toLowerCase())
+        .filter(text => text === itemText.toLowerCase());
+
+      // If the item isn't in the "to buy" or "bought" list, add the item to the cart
+      if (filteredItemsToBuyList.length === 0 && filteredBoughtItemsList.length === 0) {
+        this.itemsToBuy.push(itemToAdd);
+      }
     }
 
     // Clear input field

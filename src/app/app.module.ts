@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialComponentsModule } from './material-components/material-components.module';
 
 import { AppComponent } from './app.component';
@@ -15,7 +15,7 @@ import { CustomCardComponent } from './components/custom-card/custom-card.compon
   imports: [
     BrowserModule,
     FormsModule,
-    BrowserAnimationsModule,
+    NoopAnimationsModule,
     MaterialComponentsModule
   ],
   providers: [],
