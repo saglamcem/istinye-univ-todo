@@ -1,0 +1,56 @@
+<div class='shopping-list-container'>
+  <h1>Alışveriş Listesi</h1>
+  <div class='form-field-container'>
+    <mat-form-field class='form-field' (keyup.enter)="addToList(itemToBuy)">
+      <input matInput type='text' placeholder='Satın almak istediğiniz ürünü yazın' [(ngModel)]='itemToBuy'>
+      <button mat-button *ngIf='itemToBuy.trim().length > 0' matSuffix mat-icon-button aria-label='Add' (click)='addToList(itemToBuy)'>
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  
+  <div class='shopping-list-items-container'>
+    <mat-list>
+      <h3 mat-subheader>Alınacaklar Listesi</h3>
+      <mat-list-item class='shopping-item-row' *ngFor="let item of itemsToBuy; let $index = index;">
+        <div class='item-checkbox'>
+          <mat-checkbox 
+            (change)='updateLists(item, $index)'
+            [(ngModel)]="item.checked">
+            {{ item.text }}
+          </mat-checkbox>  
+        </div>
+        <div class="item-actions">
+          <button mat-button matSuffix mat-icon-button aria-label='Delete' (click)='deleteItemAtIndex(item, $index)'>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-list-item>
+      <p class='item-buy-status-text' *ngIf='itemsToBuy.length === 0'>
+        Alışveriş listenize eklediğiniz bir öğe yok.
+      </p>
+      
+      <mat-divider></mat-divider>
+      
+      <h3 mat-subheader>Satın alınanlar</h3>
+      <mat-list-item class='shopping-item-row' *ngFor="let item of boughtItems; let $index = index;">
+        <div class='item-checkbox'>
+          <mat-checkbox 
+            (change)='updateLists(item, $index)'
+            [(ngModel)]="item.checked">
+            {{ item.text }}
+          </mat-checkbox>
+        </div>
+        <div class='item-actions'>
+          <button mat-button matSuffix mat-icon-button aria-label='Delete' (click)='deleteItemAtIndex(item, $index)'>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-list-item>
+    </mat-list>
+    <p class='item-buy-status-text' *ngIf='boughtItems.length === 0'>
+        Alışveriş listenizdeki hiçbir öğeyi almadınız.
+      </p>
+  </div>
+</div>
+  

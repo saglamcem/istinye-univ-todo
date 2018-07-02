@@ -5,10 +5,12 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialComponentsModule } from './material-components/material-components.module';
 
 import { AppComponent } from './app.component';
+import { MaterializedShoppingListComponent } from './components/materialized-shopping-list/materialized-shopping-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MaterializedShoppingListComponent
   ],
   imports: [
     BrowserModule,
