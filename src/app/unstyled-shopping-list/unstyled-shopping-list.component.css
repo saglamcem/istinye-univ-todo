@@ -1,0 +1,17 @@
+.shopping-list-container {
+  height: 100%;
+  width: 300px;
+}
+
+.shopping-list-container .lists {
+  display: flex;
+  flex-direction: column;
+}
+
+.shopping-list-container .to-buy-list {
+  width: 100%;
+}
+
+.shopping-list-container .bought-list {
+  width: 100%;
+}

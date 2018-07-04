@@ -1,0 +1,38 @@
+<div class='shopping-list-container'>
+  <div class='shopping-item-input-container'>
+    <input type='text' [(ngModel)]='itemToBuy'>
+    <button (click)='addToCart(itemToBuy)'>Add</button>
+  </div>
+
+  <div class='lists'>
+    <div class='to-buy-list'>
+      <h3>Alınacaklar Listesi</h3>
+      <div class='list-item' *ngFor='let item of itemsToBuyList; let $index = index;'>
+        <input 
+          type='checkbox'
+          (change)='updateLists(item, $index)'
+          [(ngModel)]='item.checked'>
+          {{ item.text }}
+        <button (click)='deleteItemFromList(item, $index)'>x</button>
+      </div>
+      <div class='shopping-cart-size-text' *ngIf='itemsToBuyList.length === 0'>
+        Alışveriş listenizde almayı planladığınız bir öğe yok.
+      </div>
+    </div>
+    
+    <div class='bought-list'>
+      <h3>Alınanlar Listesi</h3>
+      <div class='list-item' *ngFor='let item of boughtItemsList; let $index = index;'>
+        <input 
+          type='checkbox'
+          (change)='updateLists(item, $index)'
+          [(ngModel)]='item.checked'>
+          {{ item.text }}
+        <button (click)='deleteItemFromList(item, $index)'>x</button>
+      </div>
+      <div class='shopping-cart-size-text' *ngIf='boughtItemsList.length === 0'>
+          Alışveriş listenizden aldığınız hiçbir öğe yok.
+      </div>
+    </div>
+  </div>
+</div>

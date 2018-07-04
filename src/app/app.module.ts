@@ -6,11 +6,13 @@ import { MaterialComponentsModule } from './material-components/material-compone
 
 import { AppComponent } from './app.component';
 import { MaterializedShoppingListComponent } from './components/materialized-shopping-list/materialized-shopping-list.component';
+import { UnstyledShoppingListComponent } from './unstyled-shopping-list/unstyled-shopping-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MaterializedShoppingListComponent
+    MaterializedShoppingListComponent,
+    UnstyledShoppingListComponent
   ],
   imports: [
     BrowserModule,
