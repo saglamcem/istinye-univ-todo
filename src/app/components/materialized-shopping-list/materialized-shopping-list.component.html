@@ -33,7 +33,7 @@
       <mat-divider></mat-divider>
       
       <h3 mat-subheader>Satın alınanlar</h3>
-      <mat-list-item class='shopping-item-row' *ngFor="let item of boughtItems; let $index = index;">
+      <mat-list-item class='shopping-item-row checked' *ngFor="let item of boughtItems; let $index = index;">
         <div class='item-checkbox'>
           <mat-checkbox 
             (change)='updateLists(item, $index)'

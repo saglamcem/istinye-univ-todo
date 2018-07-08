@@ -24,3 +24,8 @@
 .shopping-list-container .shopping-list-items-container .item-buy-status-text {
   font-size: 12px;
 }
+
+.shopping-list-items-container .shopping-item-row.checked {
+  color: rgba(0, 0, 0, 0.3);
+  text-decoration: line-through;
+}
